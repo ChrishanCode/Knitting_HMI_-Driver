@@ -336,7 +336,7 @@ void pageController()
         // saveFabrication(data3);
         // saveMachineID(data4);
 
-        if (data4 == "M05")
+        if (data4 == "M01")
         {
             statusID_01 = 1; // green
             if (operatorName == operatorName1)
@@ -347,7 +347,7 @@ void pageController()
             orderNmber_M01 = data2;
             fabrication_M01 = data3;
         }
-        else if (data4 == "M06")
+        else if (data4 == "M02")
         {
             statusID_02 = 1;
             if (operatorName == operatorName2)
@@ -358,29 +358,29 @@ void pageController()
             orderNmber_M02 = data2;
             fabrication_M02 = data3;
         }
-        // else if (data4 == "M07")
-        // {
-        //     statusID_07 = 1;
-        //     if (operatorName == operatorName3)
-        //         operatorName_M07 = operatorName3;
-        //     else
-        //         operatorName_M07 = operatorName;
+        else if (data4 == "M07")
+        {
+            statusID_07 = 1;
+            if (operatorName == operatorName3)
+                operatorName_M07 = operatorName3;
+            else
+                operatorName_M07 = operatorName;
 
-        //     operatorID_M07 = operatorID;
-        //     orderNmber_M07 = data2;
-        //     fabrication_M07 = data3;
-        // }
-        // else if (data4 == "M23")
-        // {
-        //     statusID_23 = 1;
-        //     if (operatorName == operatorName4)
-        //         operatorName_M23 = operatorName4;
-        //     else
-        //         operatorName_M23 = operatorName;
-        //     operatorID_M23 = operatorID;
-        //     orderNmber_M23 = data2;
-        //     fabrication_M23 = data3;
-        // }
+            operatorID_M07 = operatorID;
+            orderNmber_M07 = data2;
+            fabrication_M07 = data3;
+        }
+        else if (data4 == "M23")
+        {
+            statusID_23 = 1;
+            if (operatorName == operatorName4)
+                operatorName_M23 = operatorName4;
+            else
+                operatorName_M23 = operatorName;
+            operatorID_M23 = operatorID;
+            orderNmber_M23 = data2;
+            fabrication_M23 = data3;
+        }
         else
         {
             Serial.println("No Data Matched!!");
