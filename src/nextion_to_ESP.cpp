@@ -336,7 +336,7 @@ void pageController()
         // saveFabrication(data3);
         // saveMachineID(data4);
 
-        if (data4 == "M01")
+        if (data4 == "M03")
         {
             statusID_01 = 1; // green
             if (operatorName == operatorName1)
@@ -347,7 +347,7 @@ void pageController()
             orderNmber_M01 = data2;
             fabrication_M01 = data3;
         }
-        else if (data4 == "M02")
+        else if (data4 == "M04")
         {
             statusID_02 = 1;
             if (operatorName == operatorName2)
@@ -358,7 +358,7 @@ void pageController()
             orderNmber_M02 = data2;
             fabrication_M02 = data3;
         }
-        else if (data4 == "M07")
+        else if (data4 == "M24")
         {
             statusID_07 = 1;
             if (operatorName == operatorName3)
@@ -370,7 +370,7 @@ void pageController()
             orderNmber_M07 = data2;
             fabrication_M07 = data3;
         }
-        else if (data4 == "M23")
+        else if (data4 == "M25")
         {
             statusID_23 = 1;
             if (operatorName == operatorName4)
@@ -423,7 +423,7 @@ void pageController()
         Serial.println("Operator ID: " + operatorID);
         Serial.println("Device ID: " + deviceId);
 
-        if (deviceId == "M01")
+        if (deviceId == "M03")
         {
             statusID_01 = 2; // green
             if (operatorName == operatorName1)
@@ -433,7 +433,7 @@ void pageController()
             operatorID_M01 = operatorID;
             errorCode_M01 = errorCode;
         }
-        else if (deviceId == "M02")
+        else if (deviceId == "M04")
         {
             statusID_02 = 2;
             if (operatorName == operatorName2)
@@ -443,7 +443,7 @@ void pageController()
             operatorID_M02 = operatorID;
             errorCode_M02 = errorCode;
         }
-        else if (deviceId == "M07")
+        else if (deviceId == "M24")
         {
             statusID_07 = 2;
             if (operatorName == operatorName3)
@@ -455,7 +455,7 @@ void pageController()
             orderNmber_M07 = data2;
             errorCode_M07 = errorCode;
         }
-        else if (deviceId == "M23")
+        else if (deviceId == "M25")
         {
             statusID_23 = 2;
             if (operatorName == operatorName4)
@@ -508,22 +508,22 @@ void pageController()
         {
             breakCount++;
 
-            if (deviceId == "M01")
+            if (deviceId == "M03")
             {
                 statusID_01 = 3;
                 errorCode_M01 = "0";
             }
-            else if (deviceId == "M02")
+            else if (deviceId == "M04")
             {
                 statusID_02 = 3;
                 errorCode_M02 = "0";
             }
-            else if (deviceId == "M07")
+            else if (deviceId == "M24")
             {
                 statusID_07 = 3;
                 errorCode_M07 = "0";
             }
-            else if (deviceId == "M23")
+            else if (deviceId == "M25")
             {
                 statusID_23 = 3;
                 errorCode_M23 = "0";
@@ -568,19 +568,19 @@ void pageController()
 
         if (startString == "orderCompleted")
         {
-            if (deviceId == "M01")
+            if (deviceId == "M03")
             {
                 statusID_01 = 3;
             }
-            else if (deviceId == "M02")
+            else if (deviceId == "M04")
             {
                 statusID_02 = 3;
             }
-            else if (deviceId == "M07")
+            else if (deviceId == "M24")
             {
                 statusID_07 = 3;
             }
-            else if (deviceId == "M23")
+            else if (deviceId == "M25")
             {
                 statusID_23 = 3;
             }
