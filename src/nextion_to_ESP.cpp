@@ -510,12 +510,12 @@ void pageController()
 
             if (deviceId == "M05")
             {
-                statusID_01 = 3;
+                // statusID_01 = 3;
                 errorCode_M01 = "0";
             }
             else if (deviceId == "M06")
             {
-                statusID_02 = 3;
+                // statusID_02 = 3;
                 errorCode_M02 = "0";
             }
             // else if (deviceId == "M07")
