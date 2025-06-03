@@ -510,22 +510,22 @@ void pageController()
 
             if (deviceId == "M01")
             {
-                statusID_01 = 3;
+                // statusID_01 = 3;
                 errorCode_M01 = "0";
             }
             else if (deviceId == "M02")
             {
-                statusID_02 = 3;
+                // statusID_02 = 3;
                 errorCode_M02 = "0";
             }
             else if (deviceId == "M07")
             {
-                statusID_07 = 3;
+                // statusID_07 = 3;
                 errorCode_M07 = "0";
             }
             else if (deviceId == "M23")
             {
-                statusID_23 = 3;
+                // statusID_23 = 3;
                 errorCode_M23 = "0";
             }
             else
@@ -624,8 +624,4 @@ void pageController()
     default:
         break;
     }
-}
-
-void fristTimeSetup()
-{
 }
