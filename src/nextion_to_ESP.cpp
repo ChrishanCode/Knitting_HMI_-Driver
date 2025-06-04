@@ -510,22 +510,22 @@ void pageController()
 
             if (deviceId == "M03")
             {
-                // statusID_01 = 3;
+                statusID_01 = 1;
                 errorCode_M01 = "0";
             }
             else if (deviceId == "M04")
             {
-                // statusID_02 = 3;
+                statusID_02 = 1;
                 errorCode_M02 = "0";
             }
             else if (deviceId == "M24")
             {
-                // statusID_07 = 3;
+                statusID_07 = 1;
                 errorCode_M07 = "0";
             }
             else if (deviceId == "M25")
             {
-                // statusID_23 = 3;
+                statusID_23 = 1;
                 errorCode_M23 = "0";
             }
             else
