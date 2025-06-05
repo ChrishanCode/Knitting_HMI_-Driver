@@ -426,28 +426,28 @@ void pageController()
         if (deviceId == "M03")
         {
             statusID_01 = 2; // green
-            operatorID_M01 = breakOperatorID;
+            breakOperatorID_M01 = breakOperatorID;
             breakOperatorName_M01 = breakOperatorName;
             errorCode_M01 = errorCode;
         }
         else if (deviceId == "M04")
         {
             statusID_02 = 2;
-            operatorID_M02 = breakOperatorID;
+            breakOperatorID_M02 = breakOperatorID;
             breakOperatorName_M02 = breakOperatorName;
             errorCode_M02 = errorCode;
         }
         else if (deviceId == "M24")
         {
             statusID_07 = 2;
-            operatorID_M07 = breakOperatorID;
+            breakOperatorID_M07 = breakOperatorID;
             breakOperatorName_M07 = breakOperatorName;
             errorCode_M07 = errorCode;
         }
         else if (deviceId == "M25")
         {
             statusID_23 = 2;
-            operatorID_M23 = breakOperatorID;
+            breakOperatorID_M23 = breakOperatorID;
             breakOperatorName_M23 = breakOperatorName;
             errorCode_M23 = errorCode;
         }

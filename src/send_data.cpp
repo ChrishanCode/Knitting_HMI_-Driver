@@ -133,7 +133,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"OrderNmber_M03\": \"%s\", ", orderNmber_M01);
     len += sprintf((char *)post_data + len, "\"OperatorName_M03\": \"%s\", ", operatorName_M01);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M03\": \"%s\", ", breakOperatorName_M01);
-    len += sprintf((char *)post_data + len, "\"breakOperatorID_M03\": \"%s\", ", operatorID_M01);
+    len += sprintf((char *)post_data + len, "\"breakOperatorID_M03\": \"%s\", ", breakOperatorID_M01);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M03\": \"%s\", ", errorCode_M01);
     len += sprintf((char *)post_data + len, "\"BreakdownTime_ID03\": \"%u\",", oneSecCount4);
@@ -145,7 +145,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"OrderNmber_M04\": \"%s\", ", orderNmber_M02);
     len += sprintf((char *)post_data + len, "\"OperatorName_M04\": \"%s\", ", operatorName_M02);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M04\": \"%s\", ", breakOperatorName_M02);
-    len += sprintf((char *)post_data + len, "\"breakOperatorID_M04\": \"%s\", ", operatorID_M02);
+    len += sprintf((char *)post_data + len, "\"breakOperatorID_M04\": \"%s\", ", breakOperatorID_M02);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M04\": \"%s\", ", errorCode_M02);
     len += sprintf((char *)post_data + len, "\"BreakdownTime_ID04\": \"%u\",", oneSecCount5);
@@ -157,7 +157,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"OrderNmber_M24\": \"%s\", ", orderNmber_M07);
     len += sprintf((char *)post_data + len, "\"OperatorName_M24\": \"%s\", ", operatorName_M07);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M24\": \"%s\", ", breakOperatorName_M07);
-    len += sprintf((char *)post_data + len, "\"breakOperatorID_M24\": \"%s\", ", operatorID_M07);
+    len += sprintf((char *)post_data + len, "\"breakOperatorID_M24\": \"%s\", ", breakOperatorID_M07);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M24\": \"%s\", ", errorCode_M07);
     len += sprintf((char *)post_data + len, "\"BreakdownTime_ID24\": \"%u\",", oneSecCount6);
@@ -169,7 +169,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"OrderNmber_M25\": \"%s\", ", orderNmber_M23);
     len += sprintf((char *)post_data + len, "\"OperatorName_M25\": \"%s\", ", operatorName_M23);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M25\": \"%s\", ", breakOperatorName_M23);
-    len += sprintf((char *)post_data + len, "\"breakOperatorID_M25\": \"%s\", ", operatorID_M23);
+    len += sprintf((char *)post_data + len, "\"breakOperatorID_M25\": \"%s\", ", breakOperatorID_M23);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M25\": \"%s\", ", errorCode_M23);
     len += sprintf((char *)post_data + len, "\"BreakdownTime_ID25\": \"%u\",", oneSecCount7);

@@ -88,6 +88,10 @@ String breakOperatorName_M01 = "";
 String breakOperatorName_M02 = "";
 String breakOperatorName_M07 = "";
 String breakOperatorName_M23 = "";
+String breakOperatorID_M01 = "";
+String breakOperatorID_M02 = "";
+String breakOperatorID_M07 = "";
+String breakOperatorID_M23 = "";
 
 uint32_t oneSecCount1 = 0;
 uint32_t oneSecCount2 = 0;

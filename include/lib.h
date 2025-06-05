@@ -134,6 +134,10 @@ extern String breakOperatorName_M01;
 extern String breakOperatorName_M02;
 extern String breakOperatorName_M07;
 extern String breakOperatorName_M23;
+extern String breakOperatorID_M01;
+extern String breakOperatorID_M02;
+extern String breakOperatorID_M07;
+extern String breakOperatorID_M23;
 
 extern uint32_t oneSecCount1;
 extern uint32_t oneSecCount2;
