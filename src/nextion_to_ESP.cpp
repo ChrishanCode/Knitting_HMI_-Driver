@@ -413,55 +413,42 @@ void pageController()
 
         startString = str.substring(0, delim1);
         errorCode = str.substring(delim1 + 1, delim2);
-        operatorName = str.substring(delim2 + 1, delim3);
-        operatorID = str.substring(delim3 + 1, delim4);
+        breakOperatorName = str.substring(delim2 + 1, delim3);
+        breakOperatorID = str.substring(delim3 + 1, delim4);
         deviceId = str.substring(delim4 + 1);
 
         Serial.println("Start String: " + startString);
         Serial.println("Error Code: " + errorCode);
-        Serial.println("Operator Name: " + operatorName);
-        Serial.println("Operator ID: " + operatorID);
+        Serial.println("Operator Name: " + breakOperatorName);
+        Serial.println("Operator ID: " + breakOperatorID);
         Serial.println("Device ID: " + deviceId);
 
         if (deviceId == "M01")
         {
             statusID_01 = 2; // green
-            // if (operatorName == operatorName1)
-            //     operatorName_M01 = operatorName1;
-            // else
-            //     operatorName_M01 = operatorName;
-            // operatorID_M01 = operatorID;
+            breakOperatorID_M01 = breakOperatorID;
+            breakOperatorName_M01 = breakOperatorName;
             errorCode_M01 = errorCode;
         }
         else if (deviceId == "M02")
         {
             statusID_02 = 2;
-            // if (operatorName == operatorName2)
-            //     operatorName_M02 = operatorName2;
-            // else
-            //     operatorName_M02 = operatorName;
-            // operatorID_M02 = operatorID;
+            breakOperatorID_M02 = breakOperatorID;
+            breakOperatorName_M02 = breakOperatorName;
             errorCode_M02 = errorCode;
         }
         else if (deviceId == "M07")
         {
             statusID_07 = 2;
-            // if (operatorName == operatorName3)
-            //     operatorName_M07 = operatorName3;
-            // else
-            //     operatorName_M07 = operatorName;
-            // operatorID_M07 = operatorID;
-            // orderNmber_M07 = data2;
+            breakOperatorID_M07 = breakOperatorID;
+            breakOperatorName_M07 = breakOperatorName;
             errorCode_M07 = errorCode;
         }
         else if (deviceId == "M23")
         {
             statusID_23 = 2;
-            // if (operatorName == operatorName4)
-            //     operatorName_M23 = operatorName4;
-            // else
-            //     operatorName_M23 = operatorName;
-            // operatorID_M23 = operatorID;
+            breakOperatorID_M23 = breakOperatorID;
+            breakOperatorName_M23 = breakOperatorName;
             errorCode_M23 = errorCode;
         }
         {
@@ -491,7 +478,6 @@ void pageController()
         operatorName = "";
         operatorID = "";
         deviceId = "";
-
         break;
 
     case 5: // finished the breakdown
