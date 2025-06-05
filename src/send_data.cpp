@@ -126,13 +126,15 @@ void datapacket()
     len += sprintf((char *)post_data + len, "{\"api_token\": \"%s\", ", "L1B6RXwjkaKNDWwwwGyu");
     len += sprintf((char *)post_data + len, "\"HMI_ID\": \"%s\", ", "HMI-01");
     len += sprintf((char *)post_data + len, "\"Username\": \"%s\", ", username);
-    len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
 
     // machine_N01
     len += sprintf((char *)post_data + len, "\"machine_M01\": {");
     len += sprintf((char *)post_data + len, "\"StatusID_M01\": \"%d\", ", statusID_01);
+    len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M01\": \"%s\", ", orderNmber_M01);
     len += sprintf((char *)post_data + len, "\"OperatorName_M01\": \"%s\", ", operatorName_M01);
+    len += sprintf((char *)post_data + len, "\"breakOperatorName_M01\": \"%s\", ", breakOperatorName);
+    len += sprintf((char *)post_data + len, "\"breakOperatorID_M01\": \"%s\", ", breakOperatorID);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M01\": \"%s\", ", errorCode_M01);
     len += sprintf((char *)post_data + len, "\"BreakdownTime_ID01\": \"%u\",", oneSecCount4);
     len += sprintf((char *)post_data + len, "\"Fabrication_M01\": \"%s\"},", fabrication_M01);
@@ -140,8 +142,11 @@ void datapacket()
     // machine_M02
     len += sprintf((char *)post_data + len, "\"machine_M02\": {");
     len += sprintf((char *)post_data + len, "\"StatusID_M02\": \"%d\", ", statusID_02);
+    len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M02\": \"%s\", ", orderNmber_M02);
     len += sprintf((char *)post_data + len, "\"OperatorName_M02\": \"%s\", ", operatorName_M02);
+    len += sprintf((char *)post_data + len, "\"breakOperatorName_M02\": \"%s\", ", breakOperatorName);
+    len += sprintf((char *)post_data + len, "\"breakOperatorID_M02\": \"%s\", ", breakOperatorID);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M02\": \"%s\", ", errorCode_M02);
     len += sprintf((char *)post_data + len, "\"BreakdownTime_ID02\": \"%u\",", oneSecCount5);
     len += sprintf((char *)post_data + len, "\"Fabrication_M02\": \"%s\"},", fabrication_M02);
@@ -149,8 +154,11 @@ void datapacket()
     // machine_M07
     len += sprintf((char *)post_data + len, "\"machine_M07\": {");
     len += sprintf((char *)post_data + len, "\"StatusID_M07\": \"%d\", ", statusID_07);
+    len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M07\": \"%s\", ", orderNmber_M07);
     len += sprintf((char *)post_data + len, "\"OperatorName_M07\": \"%s\", ", operatorName_M07);
+    len += sprintf((char *)post_data + len, "\"breakOperatorName_M07\": \"%s\", ", breakOperatorName);
+    len += sprintf((char *)post_data + len, "\"breakOperatorID_M07\": \"%s\", ", breakOperatorID);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M07\": \"%s\", ", errorCode_M07);
     len += sprintf((char *)post_data + len, "\"BreakdownTime_ID07\": \"%u\",", oneSecCount6);
     len += sprintf((char *)post_data + len, "\"Fabrication_M07\": \"%s\"},", fabrication_M07);
@@ -158,8 +166,11 @@ void datapacket()
     // machine_M23
     len += sprintf((char *)post_data + len, "\"machine_M23\": {");
     len += sprintf((char *)post_data + len, "\"StatusID_M23\": \"%d\", ", statusID_23);
+    len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M23\": \"%s\", ", orderNmber_M23);
     len += sprintf((char *)post_data + len, "\"OperatorName_M23\": \"%s\", ", operatorName_M23);
+    len += sprintf((char *)post_data + len, "\"breakOperatorName_M23\": \"%s\", ", breakOperatorName);
+    len += sprintf((char *)post_data + len, "\"breakOperatorID_M23\": \"%s\", ", breakOperatorID);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M23\": \"%s\", ", errorCode_M23);
     len += sprintf((char *)post_data + len, "\"BreakdownTime_ID23\": \"%u\",", oneSecCount7);
     len += sprintf((char *)post_data + len, "\"Fabrication_M23\": \"%s\"},", fabrication_M23);
