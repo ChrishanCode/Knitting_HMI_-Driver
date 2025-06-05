@@ -426,45 +426,18 @@ void pageController()
         if (deviceId == "M05")
         {
             statusID_01 = 2; // green
-            // if (operatorName == operatorName1)
-            //     operatorName_M01 = operatorName1;
-            // else
-            //     operatorName_M01 = operatorName;
-            // operatorID_M01 = operatorID;
+            breakOperatorID_M01 = breakOperatorID;
+            breakOperatorName_M01 = breakOperatorName;
             errorCode_M01 = errorCode;
         }
         else if (deviceId == "M06")
         {
             statusID_02 = 2;
-            // if (operatorName == operatorName2)
-            //     operatorName_M02 = operatorName2;
-            // else
-            //     operatorName_M02 = operatorName;
-            // operatorID_M02 = operatorID;
+            breakOperatorID_M02 = breakOperatorID;
+            breakOperatorName_M02 = breakOperatorName;
             errorCode_M02 = errorCode;
         }
-        // else if (deviceId == "M07")
-        // {
-        //     statusID_07 = 2;
-        //     if (operatorName == operatorName3)
-        //         operatorName_M07 = operatorName3;
-        //     else
-        //         operatorName_M07 = operatorName;
 
-        //     operatorID_M07 = operatorID;
-        //     orderNmber_M07 = data2;
-        //     errorCode_M07 = errorCode;
-        // }
-        // else if (deviceId == "M23")
-        // {
-        //     statusID_23 = 2;
-        //     if (operatorName == operatorName4)
-        //         operatorName_M23 = operatorName4;
-        //     else
-        //         operatorName_M23 = operatorName;
-        //     operatorID_M23 = operatorID;
-        //     errorCode_M23 = errorCode;
-        // }
         {
             Serial.println("No Data Matched!!");
         }
