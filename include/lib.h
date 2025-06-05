@@ -100,6 +100,7 @@ extern String operatorPass3;
 extern String operatorPass4;
 extern String operatorIndex;
 extern String breakOperatorName;
+extern String breakOperatorID;
 extern String errorCode;
 extern String operatorPass;
 extern String operatorID;
@@ -129,6 +130,10 @@ extern String operatorName_M23;
 extern String operatorID_M23;
 extern String orderNmber_M23;
 extern String fabrication_M23;
+extern String breakOperatorName_M01;
+extern String breakOperatorName_M02;
+extern String breakOperatorName_M07;
+extern String breakOperatorName_M23;
 
 extern uint32_t oneSecCount1;
 extern uint32_t oneSecCount2;
