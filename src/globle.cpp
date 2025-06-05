@@ -54,6 +54,7 @@ String operatorPass3 = "";
 String operatorPass4 = "";
 String operatorIndex = "";
 String breakOperatorName = "";
+String breakOperatorID = "";
 String errorCode = "";
 String operatorPass = "";
 String operatorID = "";

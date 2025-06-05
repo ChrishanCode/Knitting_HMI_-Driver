@@ -100,6 +100,7 @@ extern String operatorPass3;
 extern String operatorPass4;
 extern String operatorIndex;
 extern String breakOperatorName;
+extern String breakOperatorID;
 extern String errorCode;
 extern String operatorPass;
 extern String operatorID;

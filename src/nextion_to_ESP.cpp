@@ -413,34 +413,34 @@ void pageController()
 
         startString = str.substring(0, delim1);
         errorCode = str.substring(delim1 + 1, delim2);
-        operatorName = str.substring(delim2 + 1, delim3);
-        operatorID = str.substring(delim3 + 1, delim4);
+        breakOperatorName = str.substring(delim2 + 1, delim3);
+        breakOperatorID = str.substring(delim3 + 1, delim4);
         deviceId = str.substring(delim4 + 1);
 
         Serial.println("Start String: " + startString);
         Serial.println("Error Code: " + errorCode);
-        Serial.println("Operator Name: " + operatorName);
-        Serial.println("Operator ID: " + operatorID);
+        Serial.println("Operator Name: " + breakOperatorName);
+        Serial.println("Operator ID: " + breakOperatorID);
         Serial.println("Device ID: " + deviceId);
 
         if (deviceId == "M05")
         {
             statusID_01 = 2; // green
-            if (operatorName == operatorName1)
-                operatorName_M01 = operatorName1;
-            else
-                operatorName_M01 = operatorName;
-            operatorID_M01 = operatorID;
+            // if (operatorName == operatorName1)
+            //     operatorName_M01 = operatorName1;
+            // else
+            //     operatorName_M01 = operatorName;
+            // operatorID_M01 = operatorID;
             errorCode_M01 = errorCode;
         }
         else if (deviceId == "M06")
         {
             statusID_02 = 2;
-            if (operatorName == operatorName2)
-                operatorName_M02 = operatorName2;
-            else
-                operatorName_M02 = operatorName;
-            operatorID_M02 = operatorID;
+            // if (operatorName == operatorName2)
+            //     operatorName_M02 = operatorName2;
+            // else
+            //     operatorName_M02 = operatorName;
+            // operatorID_M02 = operatorID;
             errorCode_M02 = errorCode;
         }
         // else if (deviceId == "M07")
@@ -492,7 +492,6 @@ void pageController()
         operatorName = "";
         operatorID = "";
         deviceId = "";
-
         break;
 
     case 5: // finished the breakdown
@@ -510,13 +509,17 @@ void pageController()
 
             if (deviceId == "M05")
             {
-                // statusID_01 = 3;
+                statusID_01 = 1;
                 errorCode_M01 = "0";
+                breakOperatorID = "";
+                breakOperatorName = "";
             }
             else if (deviceId == "M06")
             {
-                // statusID_02 = 3;
+                statusID_02 = 1;
                 errorCode_M02 = "0";
+                breakOperatorID = "";
+                breakOperatorName = "";
             }
             // else if (deviceId == "M07")
             // {
