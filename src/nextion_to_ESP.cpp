@@ -398,7 +398,7 @@ void pageController()
         startString = "";
         operatorName = "";
         operatorID = "";
-        data1 = "";
+        // data1 = "";
         data2 = "";
         data3 = "";
         data4 = "";
@@ -484,15 +484,15 @@ void pageController()
             {
                 statusID_01 = 1;
                 errorCode_M01 = "0";
-                breakOperatorID = "";
-                breakOperatorName = "";
+                // breakOperatorID = "";
+                // breakOperatorName = "";
             }
             else if (deviceId == "M06")
             {
                 statusID_02 = 1;
                 errorCode_M02 = "0";
-                breakOperatorID = "";
-                breakOperatorName = "";
+                // breakOperatorID = "";
+                // breakOperatorName = "";
             }
             // else if (deviceId == "M07")
             // {

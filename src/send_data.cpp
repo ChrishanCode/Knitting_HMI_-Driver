@@ -29,6 +29,8 @@ void sendTelemetryData()
         {
         case 0:
             Serial.println("URL");
+            // HMI_02 --->>> https://industry-app.utech-iiot.lk/api/v1/G9MdAAmiTeYvwqmC7Y6T/telemetry
+            // HMI Test --->>> https://energy-app.utech-iiot.lk/api/v1/kTVJAVJhUtDQANFFGV9I/telemetry
             httpOk = sendATCommandWithResponse("AT+HTTPPARA=\"URL\",\"https://industry-app.utech-iiot.lk/api/v1/G9MdAAmiTeYvwqmC7Y6T/telemetry\"", "OK", 10000);
             if (httpOk)
             {
@@ -131,6 +133,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"machine_M05\": {");
     len += sprintf((char *)post_data + len, "\"StatusID_M05\": \"%d\", ", statusID_01);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M05\": \"%s\", ", orderNmber_M01);
+    len += sprintf((char *)post_data + len, "\"OperatorName_M01\": \"%s\", ", operatorName_M01);
     len += sprintf((char *)post_data + len, "\"operatorID_M05\": \"%s\", ", operatorID_M01);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M05\": \"%s\", ", breakOperatorName_M01);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M05\": \"%s\", ", breakOperatorID_M01);
@@ -143,6 +146,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"machine_M06\": {");
     len += sprintf((char *)post_data + len, "\"StatusID_M06\": \"%d\", ", statusID_02);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M06\": \"%s\", ", orderNmber_M02);
+    len += sprintf((char *)post_data + len, "\"OperatorName_M01\": \"%s\", ", operatorName_M01);
     len += sprintf((char *)post_data + len, "\"operatorID_M06\": \"%s\", ", operatorID_M02);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M06\": \"%s\", ", breakOperatorName_M02);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M06\": \"%s\", ", breakOperatorID_M02);
@@ -154,7 +158,7 @@ void datapacket()
 
     len += sprintf((char *)post_data + len, "\"TotalBreakdownTime\": \"%u\",", oneSecCount1);
     len += sprintf((char *)post_data + len, "\"TotalBreakCount\": \"%u\", ", breakCount);
-    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "05/20/2025"); // close JSON
+    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "06/09/2025"); // close JSON
 
     // len = sprintf((char *)post_data, "{\"operatorName\": \"%s\", \"operatorID\": \"%s\",\"breakReason\": \"%s\",\"oneSecCount1\": \"%u\"}", operatorName, operatorID, breakReason, oneSecCount1);
     // len = sprintf((char *)post_data, "{\"temperature\": \"%d\", \"humidity\": \"%d\", \"pressure\": \"%d\", \"altitude\": \"%d\"}",temperature, humidity, pressure, altitude);
