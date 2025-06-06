@@ -29,6 +29,8 @@ void sendTelemetryData()
         {
         case 0:
             Serial.println("URL");
+            // HMI_01 --->>> https://industry-app.utech-iiot.lk/api/v1/L1B6RXwjkaKNDWwwwGyu/telemetry
+            // HMI Test --->>> https://energy-app.utech-iiot.lk/api/v1/kTVJAVJhUtDQANFFGV9I/telemetry
             httpOk = sendATCommandWithResponse("AT+HTTPPARA=\"URL\",\"https://industry-app.utech-iiot.lk/api/v1/L1B6RXwjkaKNDWwwwGyu/telemetry\"", "OK", 10000);
             if (httpOk)
             {
@@ -133,6 +135,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M01\": \"%s\", ", orderNmber_M01);
     len += sprintf((char *)post_data + len, "\"OperatorName_M01\": \"%s\", ", operatorName_M01);
+    len += sprintf((char *)post_data + len, "\"OperatorID_M01\": \"%s\", ", operatorID_M01);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M01\": \"%s\", ", breakOperatorName_M01);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M01\": \"%s\", ", breakOperatorID_M01);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M01\": \"%s\", ", errorCode_M01);
@@ -145,6 +148,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M02\": \"%s\", ", orderNmber_M02);
     len += sprintf((char *)post_data + len, "\"OperatorName_M02\": \"%s\", ", operatorName_M02);
+    len += sprintf((char *)post_data + len, "\"OperatorID_M02\": \"%s\", ", operatorID_M02);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M02\": \"%s\", ", breakOperatorName_M02);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M02\": \"%s\", ", breakOperatorID_M02);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M02\": \"%s\", ", errorCode_M02);
@@ -157,6 +161,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M07\": \"%s\", ", orderNmber_M07);
     len += sprintf((char *)post_data + len, "\"OperatorName_M07\": \"%s\", ", operatorName_M07);
+    len += sprintf((char *)post_data + len, "\"OperatorID_M07\": \"%s\", ", operatorID_M07);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M07\": \"%s\", ", breakOperatorName_M07);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M07\": \"%s\", ", breakOperatorID_M07);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M07\": \"%s\", ", errorCode_M07);
@@ -169,6 +174,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M23\": \"%s\", ", orderNmber_M23);
     len += sprintf((char *)post_data + len, "\"OperatorName_M23\": \"%s\", ", operatorName_M23);
+    len += sprintf((char *)post_data + len, "\"OperatorID_M23\": \"%s\", ", operatorID_M23);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M23\": \"%s\", ", breakOperatorName_M23);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M23\": \"%s\", ", breakOperatorID_M23);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M23\": \"%s\", ", errorCode_M23);
@@ -177,7 +183,7 @@ void datapacket()
 
     len += sprintf((char *)post_data + len, "\"TotalBreakdownTime\": \"%u\",", oneSecCount1);
     len += sprintf((char *)post_data + len, "\"TotalBreakCount\": \"%u\", ", breakCount);
-    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "05/16/2025"); // close JSON
+    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "06/09/2025"); // close JSON
 
     // len = sprintf((char *)post_data, "{\"operatorName\": \"%s\", \"operatorID\": \"%s\",\"breakReason\": \"%s\",\"oneSecCount1\": \"%u\"}", operatorName, operatorID, breakReason, oneSecCount1);
     // len = sprintf((char *)post_data, "{\"temperature\": \"%d\", \"humidity\": \"%d\", \"pressure\": \"%d\", \"altitude\": \"%d\"}",temperature, humidity, pressure, altitude);
