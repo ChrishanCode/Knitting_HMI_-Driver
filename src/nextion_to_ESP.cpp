@@ -398,7 +398,7 @@ void pageController()
         startString = "";
         operatorName = "";
         operatorID = "";
-        data1 = "";
+        // data1 = "";
         data2 = "";
         data3 = "";
         data4 = "";

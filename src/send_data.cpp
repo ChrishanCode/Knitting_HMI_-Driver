@@ -29,7 +29,7 @@ void sendTelemetryData()
         {
         case 0:
             Serial.println("URL");
-            httpOk = sendATCommandWithResponse("AT+HTTPPARA=\"URL\",\"https://industry-app.utech-iiot.lk/api/v1/LhkZfoqAh3QA746UIBte/telemetry\"", "OK", 10000);
+            httpOk = sendATCommandWithResponse("AT+HTTPPARA=\"URL\",\"https://energy-app.utech-iiot.lk/api/v1/kTVJAVJhUtDQANFFGV9I/telemetry\"", "OK", 10000);
             if (httpOk)
             {
                 postStatus = 1;
@@ -132,6 +132,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"StatusID_M03\": \"%d\", ", statusID_01);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M03\": \"%s\", ", orderNmber_M01);
     len += sprintf((char *)post_data + len, "\"OperatorName_M03\": \"%s\", ", operatorName_M01);
+    len += sprintf((char *)post_data + len, "\"OperatorID_M03\": \"%s\", ", operatorID_M01);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M03\": \"%s\", ", breakOperatorName_M01);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M03\": \"%s\", ", breakOperatorID_M01);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
@@ -144,6 +145,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"StatusID_M04\": \"%d\", ", statusID_02);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M04\": \"%s\", ", orderNmber_M02);
     len += sprintf((char *)post_data + len, "\"OperatorName_M04\": \"%s\", ", operatorName_M02);
+    len += sprintf((char *)post_data + len, "\"OperatorID_M04\": \"%s\", ", operatorID_M02);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M04\": \"%s\", ", breakOperatorName_M02);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M04\": \"%s\", ", breakOperatorID_M02);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
@@ -156,6 +158,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"StatusID_M24\": \"%d\", ", statusID_07);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M24\": \"%s\", ", orderNmber_M07);
     len += sprintf((char *)post_data + len, "\"OperatorName_M24\": \"%s\", ", operatorName_M07);
+    len += sprintf((char *)post_data + len, "\"OperatorID_M24\": \"%s\", ", operatorID_M07);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M24\": \"%s\", ", breakOperatorName_M07);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M24\": \"%s\", ", breakOperatorID_M07);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
@@ -168,6 +171,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"StatusID_M25\": \"%d\", ", statusID_23);
     len += sprintf((char *)post_data + len, "\"OrderNmber_M25\": \"%s\", ", orderNmber_M23);
     len += sprintf((char *)post_data + len, "\"OperatorName_M25\": \"%s\", ", operatorName_M23);
+    len += sprintf((char *)post_data + len, "\"OperatorID_M25\": \"%s\", ", operatorID_M23);
     len += sprintf((char *)post_data + len, "\"breakOperatorName_M25\": \"%s\", ", breakOperatorName_M23);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M25\": \"%s\", ", breakOperatorID_M23);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
@@ -177,7 +181,7 @@ void datapacket()
 
     len += sprintf((char *)post_data + len, "\"TotalBreakdownTime\": \"%u\",", oneSecCount1);
     len += sprintf((char *)post_data + len, "\"TotalBreakCount\": \"%u\", ", breakCount);
-    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "05/20/2025"); // close JSON
+    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "06/09/2025"); // close JSON
 
     // len = sprintf((char *)post_data, "{\"operatorName\": \"%s\", \"operatorID\": \"%s\",\"breakReason\": \"%s\",\"oneSecCount1\": \"%u\"}", operatorName, operatorID, breakReason, oneSecCount1);
     // len = sprintf((char *)post_data, "{\"temperature\": \"%d\", \"humidity\": \"%d\", \"pressure\": \"%d\", \"altitude\": \"%d\"}",temperature, humidity, pressure, altitude);
