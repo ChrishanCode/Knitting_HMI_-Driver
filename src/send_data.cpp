@@ -124,6 +124,7 @@ void sendTelemetryData()
 void datapacket()
 {
     uint16_t len = 0;
+    Serial.println("Creating data packet...");
 
     len += sprintf((char *)post_data + len, "{\"api_token\": \"%s\", ", "G9MdAAmiTeYvwqmC7Y6T");
     len += sprintf((char *)post_data + len, "\"HMI_ID\": \"%s\", ", "HMI-02");
