@@ -11,7 +11,6 @@ void sendTelemetryData();
 void initializeGPRS()
 {
     bool success = false;
-
     for (int i = 0; i < 15; i++)
     {
         if (i < 2)
@@ -106,7 +105,7 @@ void initializeGPRS()
             Serial.println("Command successful, proceeding to next command...");
         }
     }
-    if (netCheck == 1)
+    if (netCheck)
     {
         changePage(3);
     }

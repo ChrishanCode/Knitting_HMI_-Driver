@@ -107,7 +107,7 @@ void nextionSerialToEsp()
             state = 7;
             Serial.println("Cancel All is done");
         }
-        else if (strstr(hexValue, "MbreakReason") != NULL)
+        else if (strstr(hexValue, "RollerCutTIme") != NULL)
         {
             state = 8;
             Serial.println("New Machine Breakdown is done");
@@ -309,6 +309,13 @@ void pageController()
 
     case 3: // new order registation and send server activation
         Serial.println("state 3");
+        startString = "";
+        operatorName = "";
+        operatorID = "";
+        // data1 = "";
+        data2 = "";
+        data3 = "";
+        data4 = "";
 
         delim1 = str.indexOf(";");
         delim2 = str.indexOf(";", delim1 + 1);
@@ -399,17 +406,15 @@ void pageController()
         sendTelemetryData();
         SEND_Active = 1;
         state = 0;
-        startString = "";
-        operatorName = "";
-        operatorID = "";
-        // data1 = "";
-        data2 = "";
-        data3 = "";
-        data4 = "";
         break;
 
     case 4: // Set Breakdown and send server activation
         Serial.println("state 4");
+        startString = "";
+        errorCode = "";
+        deviceId = "";
+        breakOperatorID = "";
+        breakOperatorName = "";
         delim1 = str.indexOf(";");
         delim2 = str.indexOf(";", delim1 + 1);
         delim3 = str.indexOf(";", delim2 + 1);
@@ -477,13 +482,6 @@ void pageController()
         breakFlag = 1;
         SEND_Active = 1;
         state = 0;
-        startString = "";
-        errorCode = "";
-        operatorName = "";
-        operatorID = "";
-        deviceId = "";
-        breakOperatorID = "";
-        breakOperatorName = "";
         break;
 
     case 5: // finished the breakdown
@@ -498,25 +496,26 @@ void pageController()
         if (startString == "breakdownCompleted")
         {
             breakCount++;
+            breakCompleted = 1;
 
             if (deviceId == "M03")
             {
-                statusID_01 = 1;
+                statusID_01 = 3;
                 errorCode_M01 = "0";
             }
             else if (deviceId == "M04")
             {
-                statusID_02 = 1;
+                statusID_02 = 3;
                 errorCode_M02 = "0";
             }
             else if (deviceId == "M24")
             {
-                statusID_07 = 1;
+                statusID_07 = 3;
                 errorCode_M07 = "0";
             }
             else if (deviceId == "M25")
             {
-                statusID_23 = 1;
+                statusID_23 = 3;
                 errorCode_M23 = "0";
             }
             else
@@ -590,6 +589,7 @@ void pageController()
             oneSecCount3 = 0;
             sendTelemetryData();
             SEND_Active = 1;
+            breakCompleted = 1;
             state = 0;
             startString = "";
             deviceId = "";
@@ -615,6 +615,9 @@ void pageController()
 
     case 8: // Machine Breakdown new added one
         Serial.println("state 8");
+        startString = "";
+        errorCode = "";
+        deviceId = "";
         delim1 = str.indexOf(";");
         delim2 = str.indexOf(";", delim1 + 1);
         startString = str.substring(0, delim1);
@@ -674,13 +677,6 @@ void pageController()
         breakFlag = 1;
         SEND_Active = 1;
         state = 0;
-        startString = "";
-        errorCode = "";
-        operatorName = "";
-        operatorID = "";
-        deviceId = "";
-        breakOperatorID = "";
-        breakOperatorName = "";
         break;
     default:
         break;

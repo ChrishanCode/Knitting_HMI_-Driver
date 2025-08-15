@@ -99,7 +99,8 @@ void simConect(void *parameter)
   {
     if (breakFlag)
     {
-      if (oneSecCount3 > 35)
+      Serial.println("Break Flag Active");
+      if (oneSecCount3 > 350)
       {
         oneSecCount3 = 0;
         sendTelemetryData();
@@ -122,7 +123,7 @@ void simConect(void *parameter)
     Serial.println("MachineID_07 Breakdown Time:" + String(oneSecCount6));
     Serial.println("MachineID_23 Breakdown Time:" + String(oneSecCount7));
 
-    vTaskDelay(800 / portTICK_PERIOD_MS);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
 
@@ -131,13 +132,47 @@ void hendlenextionSerial(void *parameter)
   while (1)
   {
     nextionSerialToEsp();
+    if (breakCompleted == 1)
+    {
+      Serial.println("Break Completed");
+      breakCompleted = 0;
+      if (statusID_01 == 3)
+      {
+        statusID_01 = 1;
+        setVisibility("vis p2,0");
+        setVisibility("vis p3,0");
+        setVisibility("vis p5,1");
+      }
+      else if (statusID_02 == 3)
+      {
+        statusID_02 = 1;
+        setVisibility("vis p8,0");
+        setVisibility("vis p7,0");
+        setVisibility("vis p6,1");
+      }
+      else if (statusID_07 == 3)
+      {
+        statusID_07 = 1;
+        setVisibility("vis p11,0");
+        setVisibility("vis p10,0");
+        setVisibility("vis p9,1");
+      }
+      else if (statusID_23 == 3)
+      {
+        statusID_23 = 1;
+        setVisibility("vis p14,0");
+        setVisibility("vis p13,0");
+        setVisibility("vis p12,1");
+      }
+      sendTelemetryData();
+    }
+
     if (postDone == 1 && SEND_Active == 1)
     {
       Serial.println("Post Done!!");
       postDone = 0;
       SEND_Active = 0;
       changePage(2);
-
       if (statusID_01 == 1) // set 01
       {
         setVisibility("vis p2,0");
@@ -159,6 +194,7 @@ void hendlenextionSerial(void *parameter)
 
       if (statusID_02 == 1) // set 02
       {
+
         setVisibility("vis p8,0");
         setVisibility("vis p7,0");
         setVisibility("vis p6,1");

@@ -6,16 +6,15 @@ void sendCommand(String cmd);
 void setVisibility(String code);
 void changePage(int pageNumber);
 void updateTextBox(String component, String value);
-void fristTimeSetup();
+// void fristTimeSetup();
 void datapacket();
-void handleServerPage();
+// void handleServerPage();
 bool sendATCommandWithResponse(String command, String expectedResponse, int timeout);
 
 void sendTelemetryData()
 {
     uint8_t postStatus = 0, count = 0;
     postDone = 0;
-    blockSerial = 1;
     datapacket();
     while (1)
     {
@@ -30,8 +29,8 @@ void sendTelemetryData()
         case 0:
             Serial.println("URL");
             // HMI_03 --->>> https://industry-app.utech-iiot.lk/api/v1/LhkZfoqAh3QA746UIBte/telemetry
-            // HMI Test --->>> https://energy-app.utech-iiot.lk/api/v1/kTVJAVJhUtDQANFFGV9I/telemetry
-            httpOk = sendATCommandWithResponse("AT+HTTPPARA=\"URL\",\"https://energy-app.utech-iiot.lk/api/v1/LhkZfoqAh3QA746UIBte/telemetry\"", "OK", 10000);
+            // HMI Test --->>> https://energy-app.utech-iiot.lk/api/v1/kTVJAVJhUtDQANFFGV9I/telemetry hayles1
+            httpOk = sendATCommandWithResponse("AT+HTTPPARA=\"URL\",\"https://industry-app.utech-iiot.lk/api/v1/LhkZfoqAh3QA746UIBte/telemetry\"", "OK", 10000);
             if (httpOk)
             {
                 postStatus = 1;
@@ -98,6 +97,7 @@ void sendTelemetryData()
                 Serial.println("-HTTP Action fail-");
                 count++;
             }
+            break;
         case 5:
             if (simSerial.available())
             {
@@ -183,7 +183,7 @@ void datapacket()
 
     len += sprintf((char *)post_data + len, "\"TotalBreakdownTime\": \"%u\",", oneSecCount1);
     len += sprintf((char *)post_data + len, "\"TotalBreakCount\": \"%u\", ", breakCount);
-    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "06/09/2025"); // close JSON
+    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "30/07/2025"); // close JSON
 
     // len = sprintf((char *)post_data, "{\"operatorName\": \"%s\", \"operatorID\": \"%s\",\"breakReason\": \"%s\",\"oneSecCount1\": \"%u\"}", operatorName, operatorID, breakReason, oneSecCount1);
     // len = sprintf((char *)post_data, "{\"temperature\": \"%d\", \"humidity\": \"%d\", \"pressure\": \"%d\", \"altitude\": \"%d\"}",temperature, humidity, pressure, altitude);
@@ -194,46 +194,46 @@ void datapacket()
     sprintf(httpDataCommand, "AT+HTTPDATA=%d,5000", post_data_size);
 }
 
-void handleServerPage()
-{
-    Serial.println("Handle the sending page");
-    if (postDone)
-    {
-        if (startString == "register1" && data4 == "ID-29")
-        {
-            changePage(2);
-            setVisibility("vis p2,0");
-            setVisibility("vis p3,0");
-            setVisibility("vis p5,1");
-            updateTextBox("t10", username);
-            state = 0;
-        }
-        if (startString == "register1" && data4 == "ID-08")
-        {
-            changePage(2);
-            setVisibility("vis p2,0");
-            setVisibility("vis p3,0");
-            setVisibility("vis p5,1");
-            updateTextBox("t10", username);
-            state = 0;
-        }
-        if (startString == "register1" && data4 == "ID-09")
-        {
-            changePage(2);
-            setVisibility("vis p2,0");
-            setVisibility("vis p3,0");
-            setVisibility("vis p5,1");
-            updateTextBox("t10", username);
-            state = 0;
-        }
-        if (startString == "register1" && data4 == "ID-30")
-        {
-            changePage(2);
-            setVisibility("vis p2,0");
-            setVisibility("vis p3,0");
-            setVisibility("vis p5,1");
-            updateTextBox("t10", username);
-            state = 0;
-        }
-    }
-}
+// void handleServerPage()
+// {
+//     Serial.println("Handle the sending page");
+//     if (postDone)
+//     {
+//         if (startString == "register1" && data4 == "ID-29")
+//         {
+//             changePage(2);
+//             setVisibility("vis p2,0");
+//             setVisibility("vis p3,0");
+//             setVisibility("vis p5,1");
+//             updateTextBox("t10", username);
+//             state = 0;
+//         }
+//         if (startString == "register1" && data4 == "ID-08")
+//         {
+//             changePage(2);
+//             setVisibility("vis p2,0");
+//             setVisibility("vis p3,0");
+//             setVisibility("vis p5,1");
+//             updateTextBox("t10", username);
+//             state = 0;
+//         }
+//         if (startString == "register1" && data4 == "ID-09")
+//         {
+//             changePage(2);
+//             setVisibility("vis p2,0");
+//             setVisibility("vis p3,0");
+//             setVisibility("vis p5,1");
+//             updateTextBox("t10", username);
+//             state = 0;
+//         }
+//         if (startString == "register1" && data4 == "ID-30")
+//         {
+//             changePage(2);
+//             setVisibility("vis p2,0");
+//             setVisibility("vis p3,0");
+//             setVisibility("vis p5,1");
+//             updateTextBox("t10", username);
+//             state = 0;
+//         }
+//     }
+// }

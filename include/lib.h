@@ -60,6 +60,7 @@ extern bool SEND_Active;
 extern bool breakFlag;
 extern bool postDone;
 extern bool blockSerial;
+extern bool breakCompleted;
 
 extern uint8_t statusID_01;
 extern uint8_t statusID_02;
