@@ -15,6 +15,7 @@ bool SEND_Active = 0;
 bool breakFlag = 0;
 bool postDone = 0;
 bool blockSerial = 0;
+bool breakCompleted = 0;
 
 uint8_t statusID_01 = 3;
 uint8_t statusID_02 = 3;
@@ -26,7 +27,7 @@ uint8_t elocoID_02 = 0;
 uint8_t elocoID_07 = 0;
 uint8_t elocoID_23 = 0;
 
-char post_data[1500];
+char post_data[2000];
 char httpDataCommand[50];
 char hexValue[50];
 const char delimiter[] = "3B"; // ";"

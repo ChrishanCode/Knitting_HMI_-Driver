@@ -108,6 +108,11 @@ void nextionSerialToEsp()
             state = 7;
             Serial.println("Cancel All is done");
         }
+        else if (strstr(hexValue, "RollerCutTime") != NULL)
+        {
+            state = 8;
+            Serial.println("New Machine Breakdown is done");
+        }
         nextionSerial.flush();
     }
     else
@@ -492,25 +497,26 @@ void pageController()
         if (startString == "breakdownCompleted")
         {
             breakCount++;
+            breakCompleted = 1;
 
             if (deviceId == "M01")
             {
-                statusID_01 = 1;
+                statusID_01 = 3;
                 errorCode_M01 = "0";
             }
             else if (deviceId == "M02")
             {
-                statusID_02 = 1;
+                statusID_02 = 3;
                 errorCode_M02 = "0";
             }
             else if (deviceId == "M07")
             {
-                statusID_07 = 1;
+                statusID_07 = 3;
                 errorCode_M07 = "0";
             }
             else if (deviceId == "M23")
             {
-                statusID_23 = 1;
+                statusID_23 = 3;
                 errorCode_M23 = "0";
             }
             else
@@ -605,6 +611,71 @@ void pageController()
             state = 0;
             startString = "";
         }
+        break;
+    case 8: // Machine Breakdown new added one
+        Serial.println("state 8");
+        startString = "";
+        errorCode = "";
+        deviceId = "";
+        delim1 = str.indexOf(";");
+        delim2 = str.indexOf(";", delim1 + 1);
+        startString = str.substring(0, delim1);
+        errorCode = str.substring(delim1 + 1, delim2);
+        deviceId = str.substring(delim2 + 1);
+        Serial.println("startString: " + startString);
+        Serial.println("Error Code: " + errorCode);
+        Serial.println("Device ID: " + deviceId);
+
+        if (deviceId == "M01")
+        {
+            statusID_01 = 2; // green
+            breakOperatorID_M01 = breakOperatorID;
+            breakOperatorName_M01 = breakOperatorName;
+            errorCode_M01 = errorCode;
+        }
+        else if (deviceId == "M02")
+        {
+            statusID_02 = 2;
+            breakOperatorID_M02 = breakOperatorID;
+            breakOperatorName_M02 = breakOperatorName;
+            errorCode_M02 = errorCode;
+        }
+        else if (deviceId == "M07")
+        {
+            statusID_07 = 2;
+            breakOperatorID_M07 = breakOperatorID;
+            breakOperatorName_M07 = breakOperatorName;
+            errorCode_M07 = errorCode;
+        }
+        else if (deviceId == "M23")
+        {
+            statusID_23 = 2;
+            breakOperatorID_M23 = breakOperatorID;
+            breakOperatorName_M23 = breakOperatorName;
+            errorCode_M23 = errorCode;
+        }
+        {
+            Serial.println("No Data Matched!!");
+        }
+
+        // saveErrorCode_01(errorCode_M01);
+        // saveErrorCode_02(errorCode_M02);
+        // saveErrorCode_07(errorCode_M07);
+        // saveErrorCode_23(errorCode_M23);
+        breakFlag = 1;
+        EEPROM.put(INT1_ADDR, statusID_01);
+        EEPROM.put(INT2_ADDR, statusID_02);
+        EEPROM.put(INT3_ADDR, statusID_07);
+        EEPROM.put(INT4_ADDR, statusID_23);
+        EEPROM.put(INT11_ADDR, breakFlag);
+        EEPROM.commit();
+        changePage(5);
+        updateTextBox("t10", username);
+        oneSecCount3 = 0;
+        sendTelemetryData();
+        breakFlag = 1;
+        SEND_Active = 1;
+        state = 0;
         break;
     default:
         break;

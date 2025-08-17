@@ -6,9 +6,9 @@ void sendCommand(String cmd);
 void setVisibility(String code);
 void changePage(int pageNumber);
 void updateTextBox(String component, String value);
-void fristTimeSetup();
+// void fristTimeSetup();
 void datapacket();
-void handleServerPage();
+// void handleServerPage();
 bool sendATCommandWithResponse(String command, String expectedResponse, int timeout);
 
 void sendTelemetryData()
@@ -185,7 +185,7 @@ void datapacket()
 
     len += sprintf((char *)post_data + len, "\"TotalBreakdownTime\": \"%u\",", oneSecCount1);
     len += sprintf((char *)post_data + len, "\"TotalBreakCount\": \"%u\", ", breakCount);
-    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "06/09/2025"); // close JSON
+    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "08/18/2025"); // close JSON
 
     // len = sprintf((char *)post_data, "{\"operatorName\": \"%s\", \"operatorID\": \"%s\",\"breakReason\": \"%s\",\"oneSecCount1\": \"%u\"}", operatorName, operatorID, breakReason, oneSecCount1);
     // len = sprintf((char *)post_data, "{\"temperature\": \"%d\", \"humidity\": \"%d\", \"pressure\": \"%d\", \"altitude\": \"%d\"}",temperature, humidity, pressure, altitude);
@@ -196,46 +196,46 @@ void datapacket()
     sprintf(httpDataCommand, "AT+HTTPDATA=%d,5000", post_data_size);
 }
 
-void handleServerPage()
-{
-    Serial.println("Handle the sending page");
-    if (postDone)
-    {
-        if (startString == "register1" && data4 == "ID-29")
-        {
-            changePage(2);
-            setVisibility("vis p2,0");
-            setVisibility("vis p3,0");
-            setVisibility("vis p5,1");
-            updateTextBox("t10", username);
-            state = 0;
-        }
-        if (startString == "register1" && data4 == "ID-08")
-        {
-            changePage(2);
-            setVisibility("vis p2,0");
-            setVisibility("vis p3,0");
-            setVisibility("vis p5,1");
-            updateTextBox("t10", username);
-            state = 0;
-        }
-        if (startString == "register1" && data4 == "ID-09")
-        {
-            changePage(2);
-            setVisibility("vis p2,0");
-            setVisibility("vis p3,0");
-            setVisibility("vis p5,1");
-            updateTextBox("t10", username);
-            state = 0;
-        }
-        if (startString == "register1" && data4 == "ID-30")
-        {
-            changePage(2);
-            setVisibility("vis p2,0");
-            setVisibility("vis p3,0");
-            setVisibility("vis p5,1");
-            updateTextBox("t10", username);
-            state = 0;
-        }
-    }
-}
+// void handleServerPage()
+// {
+//     Serial.println("Handle the sending page");
+//     if (postDone)
+//     {
+//         if (startString == "register1" && data4 == "ID-29")
+//         {
+//             changePage(2);
+//             setVisibility("vis p2,0");
+//             setVisibility("vis p3,0");
+//             setVisibility("vis p5,1");
+//             updateTextBox("t10", username);
+//             state = 0;
+//         }
+//         if (startString == "register1" && data4 == "ID-08")
+//         {
+//             changePage(2);
+//             setVisibility("vis p2,0");
+//             setVisibility("vis p3,0");
+//             setVisibility("vis p5,1");
+//             updateTextBox("t10", username);
+//             state = 0;
+//         }
+//         if (startString == "register1" && data4 == "ID-09")
+//         {
+//             changePage(2);
+//             setVisibility("vis p2,0");
+//             setVisibility("vis p3,0");
+//             setVisibility("vis p5,1");
+//             updateTextBox("t10", username);
+//             state = 0;
+//         }
+//         if (startString == "register1" && data4 == "ID-30")
+//         {
+//             changePage(2);
+//             setVisibility("vis p2,0");
+//             setVisibility("vis p3,0");
+//             setVisibility("vis p5,1");
+//             updateTextBox("t10", username);
+//             state = 0;
+//         }
+//     }
+// }
