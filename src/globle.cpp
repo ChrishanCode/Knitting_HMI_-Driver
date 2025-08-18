@@ -15,6 +15,7 @@ bool SEND_Active = 0;
 bool breakFlag = 0;
 bool postDone = 0;
 bool blockSerial = 0;
+bool breakCompleted = 0;
 
 uint8_t statusID_01 = 3;
 uint8_t statusID_02 = 3;
