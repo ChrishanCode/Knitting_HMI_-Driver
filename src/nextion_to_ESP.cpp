@@ -107,7 +107,7 @@ void nextionSerialToEsp()
             state = 7;
             Serial.println("Cancel All is done");
         }
-        else if (strstr(hexValue, "RollerCutTIme") != NULL)
+        else if (strstr(hexValue, "RollerCutTime") != NULL)
         {
             state = 8;
             Serial.println("New Machine Breakdown is done");
@@ -589,7 +589,6 @@ void pageController()
             oneSecCount3 = 0;
             sendTelemetryData();
             SEND_Active = 1;
-            breakCompleted = 1;
             state = 0;
             startString = "";
             deviceId = "";
