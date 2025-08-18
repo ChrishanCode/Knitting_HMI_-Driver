@@ -31,7 +31,7 @@ void sendTelemetryData()
             Serial.println("URL");
             // HMI_02 --->>> https://industry-app.utech-iiot.lk/api/v1/G9MdAAmiTeYvwqmC7Y6T/telemetry
             // HMI Test --->>> https://energy-app.utech-iiot.lk/api/v1/kTVJAVJhUtDQANFFGV9I/telemetry
-            httpOk = sendATCommandWithResponse("AT+HTTPPARA=\"URL\",\"https://industry-app.utech-iiot.lk/api/v1/G9MdAAmiTeYvwqmC7Y6T/telemetry\"", "OK", 10000);
+            httpOk = sendATCommandWithResponse("AT+HTTPPARA=\"URL\",\"https://hayleys1.utech-iiot.lk/api/v1/G9MdAAmiTeYvwqmC7Y6T/telemetry\"", "OK", 10000);
             if (httpOk)
             {
                 postStatus = 1;
