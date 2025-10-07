@@ -135,6 +135,7 @@ void hendlenextionSerial(void *parameter)
     {
       Serial.println("Break Completed");
       breakCompleted = 0;
+      changePage(2);
       if (statusID_01 == 3)
       {
         statusID_01 = 1;
@@ -163,7 +164,6 @@ void hendlenextionSerial(void *parameter)
         setVisibility("vis p13,0");
         setVisibility("vis p12,1");
       }
-      changePage(2);
       sendTelemetryData();
     }
     if (postDone == 1 && SEND_Active == 1)

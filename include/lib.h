@@ -72,7 +72,7 @@ extern uint8_t elocoID_02;
 extern uint8_t elocoID_07;
 extern uint8_t elocoID_23;
 
-extern char post_data[1500];
+extern char post_data[2000];
 extern char httpDataCommand[50];
 extern char hexValue[50];
 extern const char delimiter[]; // ";"
