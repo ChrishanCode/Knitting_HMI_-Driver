@@ -136,7 +136,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"OrderNmber_M05\": \"%s\", ", orderNmber_M01);
     len += sprintf((char *)post_data + len, "\"OperatorName_M05\": \"%s\", ", operatorName_M01);
     len += sprintf((char *)post_data + len, "\"operatorID_M05\": \"%s\", ", operatorID_M01);
-    len += sprintf((char *)post_data + len, "\"breakOperatorName_M05\": \"%s\", ", breakOperatorName_M01);
+    len += sprintf((char *)post_data + len, "\"manualReason_M05\": \"%s\", ", breakOperatorName_M01);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M05\": \"%s\", ", breakOperatorID_M01);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"ErrorCode_M05\": \"%s\", ", errorCode_M01);
@@ -149,7 +149,7 @@ void datapacket()
     len += sprintf((char *)post_data + len, "\"OrderNmber_M06\": \"%s\", ", orderNmber_M02);
     len += sprintf((char *)post_data + len, "\"OperatorName_M06\": \"%s\", ", operatorName_M01);
     len += sprintf((char *)post_data + len, "\"operatorID_M06\": \"%s\", ", operatorID_M02);
-    len += sprintf((char *)post_data + len, "\"breakOperatorName_M06\": \"%s\", ", breakOperatorName_M02);
+    len += sprintf((char *)post_data + len, "\"manualReason_M06\": \"%s\", ", breakOperatorName_M02);
     len += sprintf((char *)post_data + len, "\"breakOperatorID_M06\": \"%s\", ", breakOperatorID_M02);
     len += sprintf((char *)post_data + len, "\"ShiftID\": \"%s\", ", data1);
     len += sprintf((char *)post_data + len, "\"OperatorName_M06\": \"%s\", ", operatorName_M02);
@@ -159,7 +159,7 @@ void datapacket()
 
     len += sprintf((char *)post_data + len, "\"TotalBreakdownTime\": \"%u\",", oneSecCount1);
     len += sprintf((char *)post_data + len, "\"TotalBreakCount\": \"%u\", ", breakCount);
-    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "08/18/2025"); // close JSON
+    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "13/11/2025"); // close JSON
 
     // len = sprintf((char *)post_data, "{\"operatorName\": \"%s\", \"operatorID\": \"%s\",\"breakReason\": \"%s\",\"oneSecCount1\": \"%u\"}", operatorName, operatorID, breakReason, oneSecCount1);
     // len = sprintf((char *)post_data, "{\"temperature\": \"%d\", \"humidity\": \"%d\", \"pressure\": \"%d\", \"altitude\": \"%d\"}",temperature, humidity, pressure, altitude);
