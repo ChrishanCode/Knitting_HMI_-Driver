@@ -6,7 +6,6 @@ void sendCommand(String cmd);
 void setVisibility(String code);
 void changePage(int pageNumber);
 void updateTextBox(String component, String value);
-void fristTimeSetup();
 void nextionSerialToEsp();
 void pageController();
 void sendTelemetryData();
@@ -15,11 +14,12 @@ void getEPPROM();
 void dataSaveEPPROM(void *parameter);
 void simConect(void *parameter);
 void hendlenextionSerial(void *parameter);
-void handleServerPage();
 void saveOperatorName1(String text);
 void saveOperatorName2(String text);
 void saveOperatorName3(String text);
 void saveOperatorName4(String text);
+void wifisetup();
+void wifiUpdate();
 
 bool sendATCommandWithResponse(String command, String expectedResponse, int timeout);
 
@@ -60,9 +60,7 @@ void setup()
   Serial.begin(115200);
   EEPROM.begin(EEPROM_SIZE);
   nextionSerial.begin(9600, SERIAL_8N1, nextionSerial_RX_PIN, nextionSerial_TX_PIN);
-  simSerial.begin(115200, SERIAL_8N1, SIM_RX_PIN, SIM_TX_PIN);
 
-  pinMode(SIM_ON, OUTPUT); // Set SIM_ON as output for powering on the SIM module
   OneSec_Timer = timerBegin(0, 80, true);
   timerAttachInterrupt(OneSec_Timer, &onTimer, true);
   timerAlarmWrite(OneSec_Timer, 1000000, true);
@@ -77,11 +75,14 @@ void setup()
   // EEPROM.commit();
 
   getEPPROM();
-  Serial.println("Initializing SIM module...");
-  initializeGPRS();
+
+  // pinMode(SIM_ON, OUTPUT); // Set SIM_ON as output for powering on the SIM module
+  // Serial.println("Initializing SIM module...");
+  // initializeGPRS();
+  wifisetup();
 
   xTaskCreate(dataSaveEPPROM, "dataSaveEPPROM", 1024 * 12, NULL, 1, NULL);
-  xTaskCreate(simConect, "simConect", 1024 * 12, NULL, 2, NULL);
+  xTaskCreate(simConect, "simConect", 1024 * 20, NULL, 2, NULL);
   xTaskCreate(hendlenextionSerial, "nextionSerial1", 1024 * 12, NULL, 3, NULL);
 
   // fristTimeSetup();
@@ -91,6 +92,7 @@ void setup()
 
 void loop()
 {
+  vTaskDelay(1000 / portTICK_PERIOD_MS);
 }
 
 void simConect(void *parameter)
@@ -100,18 +102,20 @@ void simConect(void *parameter)
     if (breakFlag)
     {
       Serial.println("Break Flag Active");
-      if (oneSecCount3 > 350)
+      if (oneSecCount3 > 60)
       {
+        wifiUpdate();
         oneSecCount3 = 0;
-        sendTelemetryData();
+        // sendTelemetryData();
       }
     }
     else
     {
-      if (oneSecCount3 > 500)
+      if (oneSecCount3 > POST_Active_Time)
       {
+        wifiUpdate();
         oneSecCount3 = 0;
-        sendTelemetryData();
+        // sendTelemetryData();
       }
     }
 
@@ -123,7 +127,7 @@ void simConect(void *parameter)
     Serial.println("MachineID_07 Breakdown Time:" + String(oneSecCount6));
     Serial.println("MachineID_23 Breakdown Time:" + String(oneSecCount7));
 
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    vTaskDelay(400 / portTICK_PERIOD_MS);
   }
 }
 
@@ -164,7 +168,8 @@ void hendlenextionSerial(void *parameter)
         setVisibility("vis p13,0");
         setVisibility("vis p12,1");
       }
-      sendTelemetryData();
+      // sendTelemetryData();
+      wifiUpdate();
     }
 
     if (postDone == 1 && SEND_Active == 1)
@@ -251,7 +256,7 @@ void hendlenextionSerial(void *parameter)
       }
       updateTextBox("t10", username);
     }
-    vTaskDelay(800 / portTICK_PERIOD_MS);
+    vTaskDelay(400 / portTICK_PERIOD_MS);
   }
 }
 

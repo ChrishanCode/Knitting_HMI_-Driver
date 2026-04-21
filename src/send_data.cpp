@@ -11,6 +11,8 @@ void datapacket();
 // void handleServerPage();
 bool sendATCommandWithResponse(String command, String expectedResponse, int timeout);
 
+#if sim_
+
 void sendTelemetryData()
 {
     uint8_t postStatus = 0, count = 0;
@@ -183,7 +185,7 @@ void datapacket()
 
     len += sprintf((char *)post_data + len, "\"TotalBreakdownTime\": \"%u\",", oneSecCount1);
     len += sprintf((char *)post_data + len, "\"TotalBreakCount\": \"%u\", ", breakCount);
-    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "13/11/2025"); // close JSON
+    len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "02/23/2025"); // close JSON
 
     // len = sprintf((char *)post_data, "{\"operatorName\": \"%s\", \"operatorID\": \"%s\",\"breakReason\": \"%s\",\"oneSecCount1\": \"%u\"}", operatorName, operatorID, breakReason, oneSecCount1);
     // len = sprintf((char *)post_data, "{\"temperature\": \"%d\", \"humidity\": \"%d\", \"pressure\": \"%d\", \"altitude\": \"%d\"}",temperature, humidity, pressure, altitude);
@@ -193,6 +195,8 @@ void datapacket()
     post_data_size = len;
     sprintf(httpDataCommand, "AT+HTTPDATA=%d,5000", post_data_size);
 }
+
+#endif
 
 // void handleServerPage()
 // {

@@ -8,6 +8,8 @@ void setVisibility(String code);
 bool sendATCommandWithResponse(String command, String expectedResponse, int timeout);
 void sendTelemetryData();
 
+#if sim_
+
 void initializeGPRS()
 {
     bool success = false;
@@ -141,3 +143,4 @@ bool sendATCommandWithResponse(String command, String expectedResponse, int time
     }
     return false;
 }
+#endif

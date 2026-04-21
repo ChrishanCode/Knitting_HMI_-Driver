@@ -25,6 +25,8 @@ void saveErrorCode_02(String text);
 void saveErrorCode_07(String text);
 void saveErrorCode_23(String text);
 
+void wifiUpdate();
+
 bool isReadable(const char *data)
 {
     for (int i = 0; data[i] != '\0'; i++)
@@ -144,7 +146,8 @@ void pageController()
             state = 0;
             changePage(5);
             updateTextBox("t10", username);
-            sendTelemetryData();
+            // sendTelemetryData();
+            wifiUpdate();
             if (postDone)
             {
                 postDone = 0;
@@ -167,7 +170,8 @@ void pageController()
             state = 0;
             changePage(5);
             updateTextBox("t10", username);
-            sendTelemetryData();
+            // sendTelemetryData();
+            wifiUpdate();
             if (postDone)
             {
                 // postDone = 0;
@@ -186,7 +190,8 @@ void pageController()
             state = 0;
             changePage(5);
             updateTextBox("t10", username);
-            sendTelemetryData();
+            // sendTelemetryData();
+            wifiUpdate();
             if (postDone)
             {
                 // postDone = 0;
@@ -403,7 +408,8 @@ void pageController()
         EEPROM.commit();
         changePage(5);
         updateTextBox("t10", username);
-        sendTelemetryData();
+        // sendTelemetryData();
+        wifiUpdate();
         SEND_Active = 1;
         state = 0;
         break;
@@ -478,7 +484,8 @@ void pageController()
         changePage(5);
         updateTextBox("t10", username);
         oneSecCount3 = 0;
-        sendTelemetryData();
+        // sendTelemetryData();
+        wifiUpdate();
         breakFlag = 1;
         SEND_Active = 1;
         state = 0;
@@ -537,8 +544,9 @@ void pageController()
             EEPROM.commit();
             changePage(5);
             updateTextBox("t10", username);
+            wifiUpdate();
             oneSecCount3 = 0;
-            sendTelemetryData();
+            // sendTelemetryData();
             SEND_Active = 1;
             state = 0;
             EPPROM_Active = 1;
@@ -586,8 +594,9 @@ void pageController()
             EEPROM.commit();
             changePage(5);
             updateTextBox("t10", username);
+            wifiUpdate();
             oneSecCount3 = 0;
-            sendTelemetryData();
+            // sendTelemetryData();
             SEND_Active = 1;
             state = 0;
             startString = "";
@@ -671,8 +680,9 @@ void pageController()
         EEPROM.commit();
         changePage(5);
         updateTextBox("t10", username);
+        wifiUpdate();
         oneSecCount3 = 0;
-        sendTelemetryData();
+        // sendTelemetryData();
         breakFlag = 1;
         SEND_Active = 1;
         state = 0;
