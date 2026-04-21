@@ -9,7 +9,7 @@ void updateTextBox(String component, String value);
 // void fristTimeSetup();
 void nextionSerialToEsp();
 void pageController();
-void sendTelemetryData();
+// void sendTelemetryData();
 void datapacket();
 void getEPPROM();
 void dataSaveEPPROM(void *parameter);
@@ -27,6 +27,9 @@ String readOperatorName1();
 String readOperatorName2();
 String readOperatorName3();
 String readOperatorName4();
+
+void wifisetup();
+void wifiUpdate();
 
 void IRAM_ATTR onTimer()
 {
@@ -77,8 +80,11 @@ void setup()
   // EEPROM.commit();
 
   getEPPROM();
-  Serial.println("Initializing SIM module...");
-  initializeGPRS();
+
+  // pinMode(SIM_ON, OUTPUT); // Set SIM_ON as output for powering on the SIM module
+  // Serial.println("Initializing SIM module...");
+  // initializeGPRS();
+  wifisetup();
 
   xTaskCreate(dataSaveEPPROM, "dataSaveEPPROM", 1024 * 12, NULL, 1, NULL);
   xTaskCreate(simConect, "simConect", 1024 * 12, NULL, 2, NULL);
@@ -102,7 +108,8 @@ void simConect(void *parameter)
       if (oneSecCount3 > 350)
       {
         oneSecCount3 = 0;
-        sendTelemetryData();
+        // sendTelemetryData();
+        wifiUpdate();
       }
     }
     else
@@ -110,7 +117,8 @@ void simConect(void *parameter)
       if (oneSecCount3 > 500)
       {
         oneSecCount3 = 0;
-        sendTelemetryData();
+        // sendTelemetryData();
+        wifiUpdate();
       }
     }
 
@@ -164,7 +172,8 @@ void hendlenextionSerial(void *parameter)
         setVisibility("vis p13,0");
         setVisibility("vis p12,1");
       }
-      sendTelemetryData();
+      // sendTelemetryData();
+      wifiUpdate();
     }
     if (postDone == 1 && SEND_Active == 1)
     {

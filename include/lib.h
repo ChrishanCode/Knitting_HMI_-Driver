@@ -3,9 +3,14 @@
 #include <FreeRTOSConfig.h>
 #include <ArduinoJson.h>
 #include <EEPROM.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
 
 extern HardwareSerial nextionSerial; // Create a one serial for nextionSerial communication
 extern HardwareSerial simSerial;     // Create a second serial for SIM module communication
+
+#define sim_ 0
+#define Wifi_ 1
 
 #define EEPROM_SIZE 512
 #define nextionSerial_RX_PIN 14
@@ -72,7 +77,7 @@ extern uint8_t elocoID_02;
 extern uint8_t elocoID_07;
 extern uint8_t elocoID_23;
 
-extern char post_data[2000];
+extern char post_data[1500];
 extern char httpDataCommand[50];
 extern char hexValue[50];
 extern const char delimiter[]; // ";"
@@ -159,3 +164,14 @@ extern uint32_t eoneSecCount7;
 
 // Declare a pointer to hw_timer_t
 extern hw_timer_t *OneSec_Timer;
+
+// wifi
+
+extern const char *rootCACertificate;
+extern const char *ssid;
+extern const char *wifiKey;
+extern const char *telemetryUrl;
+
+extern unsigned long len;
+extern bool otaBit;
+extern const byte POST_Active_Time;

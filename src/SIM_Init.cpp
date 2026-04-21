@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <lib.h>
 
+#if sim_
 void changePage(int pageNumber);
 void sendCommand(String cmd);
 void updateTextBox(String component, String value);
@@ -142,3 +143,5 @@ bool sendATCommandWithResponse(String command, String expectedResponse, int time
     }
     return false;
 }
+
+#endif

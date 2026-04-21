@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <lib.h>
 
+#if sim_
+
 void initializeGPRS();
 void sendCommand(String cmd);
 void setVisibility(String code);
@@ -195,6 +197,8 @@ void datapacket()
     post_data_size = len;
     sprintf(httpDataCommand, "AT+HTTPDATA=%d,5000", post_data_size);
 }
+
+#endif
 
 // void handleServerPage()
 // {
