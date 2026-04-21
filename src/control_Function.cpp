@@ -31,4 +31,3 @@ void setVisibility(String code)
     Serial.println(cmd);
     sendCommand(cmd);
 }
-

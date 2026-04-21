@@ -11,6 +11,8 @@ void datapacket();
 // void handleServerPage();
 bool sendATCommandWithResponse(String command, String expectedResponse, int timeout);
 
+#if sim_
+
 void sendTelemetryData()
 {
     uint8_t postStatus = 0, count = 0;
@@ -170,6 +172,7 @@ void datapacket()
     sprintf(httpDataCommand, "AT+HTTPDATA=%d,5000", post_data_size);
 }
 
+#endif
 // void handleServerPage()
 // {
 //     Serial.println("Handle the sending page");
