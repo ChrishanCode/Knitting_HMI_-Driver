@@ -154,7 +154,7 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 const char *ssid = "UTECH2.4G";
 const char *wifiKey = "Utech@54321";
 
-const char *telemetryUrl = "https://hayleys1.utech-iiot.lk/api/v1/LhkZfoqAh3QA746UIBte/telemetry";
+const char *telemetryUrl = "https://hayleys1.utech-iiot.lk/api/v1/G9MdAAmiTeYvwqmC7Y6T/telemetry";
 
 unsigned long len = 0;
 bool otaBit = 0;
