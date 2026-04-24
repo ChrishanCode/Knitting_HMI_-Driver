@@ -151,8 +151,8 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 -----END CERTIFICATE-----
 )EOF";
 
-const char *ssid = "UTECH2.4G";
-const char *wifiKey = "Utech@54321";
+const char *ssid = "STARLINK";
+const char *wifiKey = "SAT#Office";
 
 const char *telemetryUrl = "https://hayleys1.utech-iiot.lk/api/v1/LhkZfoqAh3QA746UIBte/telemetry";
 
