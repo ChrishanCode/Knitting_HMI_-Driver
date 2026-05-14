@@ -102,7 +102,7 @@ void simConect(void *parameter)
     if (breakFlag)
     {
       Serial.println("Break Flag Active");
-      if (oneSecCount3 > 60)
+      if (oneSecCount3 > 10)
       {
         wifiUpdate();
         oneSecCount3 = 0;
@@ -112,6 +112,7 @@ void simConect(void *parameter)
     else
     {
       if (oneSecCount3 > POST_Active_Time)
+
       {
         wifiUpdate();
         oneSecCount3 = 0;
@@ -169,6 +170,7 @@ void hendlenextionSerial(void *parameter)
         setVisibility("vis p12,1");
       }
       // sendTelemetryData();
+      oneSecCount3 = 20;
       wifiUpdate();
     }
 
@@ -199,7 +201,6 @@ void hendlenextionSerial(void *parameter)
 
       if (statusID_02 == 1) // set 02
       {
-
         setVisibility("vis p8,0");
         setVisibility("vis p7,0");
         setVisibility("vis p6,1");

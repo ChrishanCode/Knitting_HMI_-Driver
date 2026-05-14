@@ -88,7 +88,7 @@ void wifiUpdate()
 
             len += sprintf((char *)post_data + len, "\"TotalBreakdownTime\": \"%u\",", oneSecCount1);
             len += sprintf((char *)post_data + len, "\"TotalBreakCount\": \"%u\", ", breakCount);
-            len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "13/11/2025"); // close JSON
+            len += sprintf((char *)post_data + len, "\"FW_version\": \"%s\"}", "24/04/2025"); // close JSON
 
             int httpResponseCode = http.POST(post_data);
             Serial.print("post_data--->");
